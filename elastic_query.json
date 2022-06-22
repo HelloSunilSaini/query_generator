@@ -1,0 +1,85 @@
+
+{
+    "query": {
+        "bool": {
+            "should": [
+                {
+                    "bool": {
+                        "must": [
+                            {
+                                "match": {
+                                    "text": "Java"
+                                }
+                            },
+                            {
+                                "match": {
+                                    "text": "Spring"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "bool": {
+                        "should": [
+                            {
+                                "bool": {
+                                    "must": [
+                                        {
+                                            "match": {
+                                                "text": "Python"
+                                            }
+                                        },
+                                        {
+                                            "match": {
+                                                "text": "Django"
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "bool": {
+                                    "must": [
+                                        {
+                                            "match": {
+                                                "text": "Ruby"
+                                            }
+                                        },
+                                        {
+                                            "bool": {
+                                                "must": [
+                                                    {
+                                                        "bool": {
+                                                            "should": [
+                                                                {
+                                                                    "match_phrase": {
+                                                                        "text": "Ruby on Rails"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "match": {
+                                                                        "text": "ROR"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "match_phrase": {
+                                                            "text": "Hello World"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}
